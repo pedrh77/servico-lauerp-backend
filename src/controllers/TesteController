@@ -1,9 +1,0 @@
-const getTeste = (req, res) => {
-    res.status(200).send({
-        teste: 'chegou'
-    });
-};
-
-module.exports = {
-    getTeste
-};
