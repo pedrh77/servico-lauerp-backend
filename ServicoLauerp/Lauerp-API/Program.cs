@@ -1,3 +1,6 @@
+using Lauerp_Infra.Database;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+DatabaseConfiguration(builder);
 
 var app = builder.Build();
 
@@ -23,3 +28,11 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+void DatabaseConfiguration(WebApplicationBuilder builder)
+{
+    builder.Services.AddDbContext<LauerpPostgreDbContext>(
+        config => config.UseNpgsql(builder.Configuration.GetConnectionString("DatabaseConnection"), b => b.MigrationsAssembly("Lauerp-Infra"))
+        );
+}

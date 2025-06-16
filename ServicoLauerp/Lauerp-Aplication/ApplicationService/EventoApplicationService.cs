@@ -1,6 +1,6 @@
 ﻿using Lauerp_Application.Interfaces;
 
-namespace Lauerp_Aplication.ApplicationService;
+namespace Lauerp_Application.ApplicationService;
 
 public class EventoApplicationService : IEventoAplication
 {

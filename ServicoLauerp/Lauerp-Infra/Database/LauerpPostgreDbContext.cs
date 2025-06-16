@@ -10,6 +10,6 @@ public class LauerpPostgreDbContext : DbContext
     }
 
     public virtual DbSet<Professor> Professores { get; set; }
-    public virtual DbSet<Professor> Jogadores { get; set; }
-    public virtual DbSet<Professor> Esportes { get; set; }
+    public virtual DbSet<Jogador> Jogadores { get; set; }
+    public virtual DbSet<Esporte> Esportes { get; set; }
 }
