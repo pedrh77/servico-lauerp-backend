@@ -1,9 +1,8 @@
-﻿namespace Lauerp_Domain.Models;
+﻿namespace Lauerp_Domain.DTOs;
 
-public class Esporte : EntityBase
+public class EsportesDTO
 {
     public int Id { get; set; }
     string Titulo { get; set; }
     string Descricao { get; set; }
-
 }
