@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -26,6 +26,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Lauerp-Aplication\Lauerp-Application.csproj" />
     <ProjectReference Include="..\Lauerp-Infra\Lauerp-Infra.csproj" />
+    <ProjectReference Include="..\Lauerp-IoC\Lauerp-IoC.csproj" />
   </ItemGroup>
 
 </Project>

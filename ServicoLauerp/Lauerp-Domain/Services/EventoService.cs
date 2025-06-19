@@ -1,13 +1,20 @@
-﻿using Lauerp_Domain.DTOs;
+﻿using AutoMapper;
+using Lauerp_Domain.DTOs.Eventos;
 using Lauerp_Domain.Interfaces;
+using Lauerp_Domain.Models;
 
 namespace Lauerp_Domain.Services
 {
-    public class EventoService(IEventoRepository _eventoRepository) : IEventoService
+    public class EventoService(IEventoRepository _eventoRepository, IMapper _mapper) : IEventoService
     {
-        public Task<List<EventoDTO>> ListaEventosAsync()
+        public async Task<List<EventoDTO>> ListaEventosAsync() => _mapper.Map<List<EventoDTO>>(await _eventoRepository.ListaEventosAsync());
+
+
+        public async Task<EventoDTO> ListaEventosByIdAsync(int Id) => _mapper.Map<EventoDTO>(await _eventoRepository.ListaEventosByIdAsync(Id));
+
+        public async Task<Evento> NovoEventoAsync(NovoEventoDTO request)
         {
-            var eventos = _eventoRepository.ListaEventosAsync();
+            return await _eventoRepository.AddEventoAsync(_mapper.Map<Evento>(request));
 
         }
     }

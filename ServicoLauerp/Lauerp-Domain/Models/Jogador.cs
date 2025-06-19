@@ -3,10 +3,10 @@
 public class Jogador : EntityBase
 {
     public int Id { get; set; }
-    string Nome { get; set; }
-    string CPF { get; set; }
-    DateTime DataNascimento { get; set; }
-    string Telefone { get; set; }
-    string Email { get; set; }
+    public string Nome { get; set; }
+    public string CPF { get; set; }
+    public DateTime DataNascimento { get; set; }
+    public string Telefone { get; set; }
+    public string Email { get; set; }
 
 }

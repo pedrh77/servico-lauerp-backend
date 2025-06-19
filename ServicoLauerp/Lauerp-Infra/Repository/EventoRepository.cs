@@ -7,9 +7,25 @@ namespace Lauerp_Infra.Repository
 {
     public class EventoRepository(LauerpPostgreDbContext _dbcontext) : IEventoRepository
     {
-        public async Task<List<Evento>> ListaEventosAsync()
+        public async Task<List<Evento>> ListaEventosAsync() => await _dbcontext.Eventos.Where(e => !e.Deleted).ToListAsync();
+
+        public async Task<Evento> ListaEventosByIdAsync(int Id) => await _dbcontext.Eventos.FirstOrDefaultAsync(x => x.Id == Id);
+
+        public async Task<Evento> AddEventoAsync(Evento evento)
         {
-            return await _dbcontext.Eventos.ToListAsync();
+            try
+            {
+                evento.AdicionaDadosBase(); // provavelmente seta Criado_em, etc.
+
+                await _dbcontext.Eventos.AddAsync(evento);
+                await _dbcontext.SaveChangesAsync();
+
+                return evento;
+            }
+            catch (Exception ex)
+            {
+                throw new($"[AddEventoAsync]: Problemas ao Salvar Evento.");
+            }
         }
     }
 }

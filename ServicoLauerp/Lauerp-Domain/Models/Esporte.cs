@@ -3,7 +3,7 @@
 public class Esporte : EntityBase
 {
     public int Id { get; set; }
-    string Titulo { get; set; }
-    string Descricao { get; set; }
+    public string Titulo { get; set; }
+    public string Descricao { get; set; }
 
 }

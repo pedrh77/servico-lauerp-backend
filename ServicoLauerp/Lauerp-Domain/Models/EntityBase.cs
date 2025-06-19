@@ -6,4 +6,12 @@ public class EntityBase
     public DateTime Modificado_em { get; set; }
     public bool Deleted { get; set; } = false;
 
+
+    public void AdicionaDadosBase()
+    {
+        Criado_em = DateTime.UtcNow;
+        Modificado_em = DateTime.UtcNow;
+        Deleted = false;
+    }
+
 }

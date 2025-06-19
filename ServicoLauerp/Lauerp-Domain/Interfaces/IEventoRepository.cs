@@ -1,9 +1,10 @@
 ﻿using Lauerp_Domain.Models;
 
-namespace Lauerp_Domain.Interfaces
+namespace Lauerp_Domain.Interfaces;
+
+public interface IEventoRepository
 {
-    public interface IEventoRepository
-    {
-        Task<List<Evento>> ListaEventosAsync();
-    }
+    Task<Evento> AddEventoAsync(Evento evento);
+    Task<List<Evento>> ListaEventosAsync();
+    Task<Evento> ListaEventosByIdAsync(int Id);
 }
