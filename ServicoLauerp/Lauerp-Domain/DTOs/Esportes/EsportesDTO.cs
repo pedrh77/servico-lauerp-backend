@@ -1,4 +1,4 @@
-﻿namespace Lauerp_Domain.DTOs.Eventos;
+﻿namespace Lauerp_Domain.DTOs.Esportes;
 
 public class EsportesDTO
 {

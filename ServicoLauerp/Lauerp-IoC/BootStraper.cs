@@ -1,4 +1,6 @@
-﻿using Lauerp_Aplication.Mapping;
+﻿using Lauerp_Aplication.ApplicationService;
+using Lauerp_Aplication.Interfaces;
+using Lauerp_Aplication.Mapping;
 using Lauerp_Application.ApplicationService;
 using Lauerp_Application.Interfaces;
 using Lauerp_Domain.Interfaces;
@@ -46,16 +48,20 @@ public static class BootStraper
     public static void RegisterServices(IServiceCollection services)
     {
         services.AddScoped<IEventoService, EventoService>();
+        services.AddScoped<IProfessorService, ProfessorService>();
 
     }
 
     public static void RegisterRepositories(IServiceCollection services)
     {
+
         services.AddScoped<IEventoRepository, EventoRepository>();
+        services.AddScoped<IProfessorRepository, ProfessorRepository>();
     }
 
     private static void RegisterApplication(IServiceCollection services)
     {
-        services.AddScoped<IEventoAplication, EventoApplicationService>();
+        services.AddScoped<IEventoApplication, EventoApplicationService>();
+        services.AddScoped<IProfessoresApplication, ProfessoresApplicationService>();
     }
 }

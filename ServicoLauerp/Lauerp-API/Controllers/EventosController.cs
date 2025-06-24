@@ -7,7 +7,7 @@ namespace Lauerp_API.Controllers;
 [ApiController]
 [Route("[controller]")]
 [Produces("application/json")]
-public class EventosController(IEventoAplication _eventoApplication) : ControllerBase
+public class EventosController(IEventoApplication _eventoApplication) : ControllerBase
 {
     [HttpGet]
     public async Task<IActionResult> ListaEventosAsync()
@@ -36,6 +36,15 @@ public class EventosController(IEventoAplication _eventoApplication) : Controlle
     [HttpPost]
     public async Task<IActionResult> AdicionaNovoEventoAsync([FromBody] NovoEventoDTO NovoEventoDTO)
     {
-        return Created("", await _eventoApplication.NovoEventoAsync(NovoEventoDTO));
+        try
+        {
+            await _eventoApplication.NovoEventoAsync(NovoEventoDTO);
+            return Created();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception($"Erro ao Adicionar um novo Evento. Erro:{ex}");
+        }
+
     }
 }

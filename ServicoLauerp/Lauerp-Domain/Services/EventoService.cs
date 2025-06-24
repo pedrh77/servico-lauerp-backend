@@ -12,7 +12,7 @@ namespace Lauerp_Domain.Services
 
         public async Task<EventoDTO> ListaEventosByIdAsync(int Id) => _mapper.Map<EventoDTO>(await _eventoRepository.ListaEventosByIdAsync(Id));
 
-        public async Task<Evento> NovoEventoAsync(NovoEventoDTO request)
+        public async Task<int> NovoEventoAsync(NovoEventoDTO request)
         {
             return await _eventoRepository.AddEventoAsync(_mapper.Map<Evento>(request));
 

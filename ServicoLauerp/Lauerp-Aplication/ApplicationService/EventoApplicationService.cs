@@ -5,12 +5,12 @@ using Lauerp_Domain.Models;
 
 namespace Lauerp_Application.ApplicationService;
 
-public class EventoApplicationService(IEventoService _eventoService) : IEventoAplication
+public class EventoApplicationService(IEventoService _eventoService) : IEventoApplication
 {
 
     public async Task<List<EventoDTO>> ListaEventosAsync() => await _eventoService.ListaEventosAsync();
 
     public async Task<EventoDTO> ListaEventosByIdAsync(int Id) => await _eventoService.ListaEventosByIdAsync(Id);
 
-    public async Task<Evento> NovoEventoAsync(NovoEventoDTO request) => await _eventoService.NovoEventoAsync(request);
+    public async Task<int> NovoEventoAsync(NovoEventoDTO request) => await _eventoService.NovoEventoAsync(request);
 }

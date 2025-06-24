@@ -3,9 +3,9 @@ using Lauerp_Domain.Models;
 
 namespace Lauerp_Application.Interfaces;
 
-public interface IEventoAplication
+public interface IEventoApplication
 {
     Task<List<EventoDTO>> ListaEventosAsync();
     Task<EventoDTO> ListaEventosByIdAsync(int Id);
-    Task<Evento> NovoEventoAsync(NovoEventoDTO request);
+    Task<int> NovoEventoAsync(NovoEventoDTO request);
 }

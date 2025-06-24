@@ -3,6 +3,7 @@ using System;
 using Lauerp_Infra.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Lauerp_Infra.Migrations
 {
     [DbContext(typeof(LauerpPostgreDbContext))]
-    partial class LauerpPostgreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250620191634_AdicionandoProfessorProperties")]
+    partial class AdicionandoProfessorProperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,32 +24,6 @@ namespace Lauerp_Infra.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
-
-            modelBuilder.Entity("Lauerp_Domain.Models.Aula", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DataHora")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("EsporteId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("ProfessorId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EsporteId");
-
-                    b.HasIndex("ProfessorId");
-
-                    b.ToTable("Aulas");
-                });
 
             modelBuilder.Entity("Lauerp_Domain.Models.Esporte", b =>
                 {
@@ -140,10 +117,6 @@ namespace Lauerp_Infra.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Matricula")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<DateTime>("Modificado_em")
                         .HasColumnType("timestamp with time zone");
 
@@ -158,49 +131,6 @@ namespace Lauerp_Infra.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Jogadores");
-                });
-
-            modelBuilder.Entity("Lauerp_Domain.Models.Presenca", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("AulaId")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("Criado_em")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("Data")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("boolean");
-
-                    b.Property<int>("EsporteId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("JogadorId")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("Modificado_em")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<bool>("Presente")
-                        .HasColumnType("boolean");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AulaId");
-
-                    b.HasIndex("EsporteId");
-
-                    b.HasIndex("JogadorId");
-
-                    b.ToTable("Presencas");
                 });
 
             modelBuilder.Entity("Lauerp_Domain.Models.Professor", b =>
@@ -242,53 +172,6 @@ namespace Lauerp_Infra.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Professores");
-                });
-
-            modelBuilder.Entity("Lauerp_Domain.Models.Aula", b =>
-                {
-                    b.HasOne("Lauerp_Domain.Models.Esporte", "Esporte")
-                        .WithMany()
-                        .HasForeignKey("EsporteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Lauerp_Domain.Models.Professor", "Professor")
-                        .WithMany()
-                        .HasForeignKey("ProfessorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Esporte");
-
-                    b.Navigation("Professor");
-                });
-
-            modelBuilder.Entity("Lauerp_Domain.Models.Presenca", b =>
-                {
-                    b.HasOne("Lauerp_Domain.Models.Aula", null)
-                        .WithMany("Presencas")
-                        .HasForeignKey("AulaId");
-
-                    b.HasOne("Lauerp_Domain.Models.Esporte", "Esporte")
-                        .WithMany()
-                        .HasForeignKey("EsporteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Lauerp_Domain.Models.Jogador", "Jogador")
-                        .WithMany()
-                        .HasForeignKey("JogadorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Esporte");
-
-                    b.Navigation("Jogador");
-                });
-
-            modelBuilder.Entity("Lauerp_Domain.Models.Aula", b =>
-                {
-                    b.Navigation("Presencas");
                 });
 #pragma warning restore 612, 618
         }

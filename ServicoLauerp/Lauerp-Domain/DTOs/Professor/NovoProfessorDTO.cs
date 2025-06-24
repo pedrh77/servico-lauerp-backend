@@ -1,9 +1,8 @@
-﻿namespace Lauerp_Domain.Models;
+﻿namespace Lauerp_Domain.DTOs.Professor;
 
-public class Professor : EntityBase
+public class NovoProfessorDTO
 {
-    public int Id { get; set; }
-    public string Nome { get; set; }
+   public string Nome { get; set; }
     public string CPF { get; set; }
     public DateTime DataNascimento { get; set; }
     public string Telefone { get; set; }

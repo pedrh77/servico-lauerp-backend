@@ -9,8 +9,10 @@ public class LauerpPostgreDbContext : DbContext
     {
     }
 
-    public  DbSet<Professor> Professores { get; set; }
-    public  DbSet<Jogador> Jogadores { get; set; }
-    public  DbSet<Esporte> Esportes { get; set; }
-    public  DbSet<Evento> Eventos { get; set; }
+    public DbSet<Professor> Professores { get; set; }
+    public DbSet<Jogador> Jogadores { get; set; }
+    public DbSet<Esporte> Esportes { get; set; }
+    public DbSet<Evento> Eventos { get; set; }
+    public DbSet<Presenca> Presencas { get; set; }
+    public DbSet<Aula> Aulas { get; set; }
 }

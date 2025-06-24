@@ -11,21 +11,21 @@ namespace Lauerp_Infra.Repository
 
         public async Task<Evento> ListaEventosByIdAsync(int Id) => await _dbcontext.Eventos.FirstOrDefaultAsync(x => x.Id == Id);
 
-        public async Task<Evento> AddEventoAsync(Evento evento)
+        public async Task<int> AddEventoAsync(Evento evento)
         {
             try
             {
-                evento.AdicionaDadosBase(); // provavelmente seta Criado_em, etc.
-
+                evento.AdicionaDadosBase(); 
                 await _dbcontext.Eventos.AddAsync(evento);
                 await _dbcontext.SaveChangesAsync();
-
-                return evento;
+                return evento.Id;
             }
             catch (Exception ex)
             {
                 throw new($"[AddEventoAsync]: Problemas ao Salvar Evento.");
             }
         }
+
+
     }
 }

@@ -8,5 +8,5 @@ public interface IEventoService
     Task<List<EventoDTO>> ListaEventosAsync();
 
     Task<EventoDTO> ListaEventosByIdAsync(int Id);
-    Task<Evento> NovoEventoAsync(NovoEventoDTO request);
+    Task<int> NovoEventoAsync(NovoEventoDTO request);
 }
