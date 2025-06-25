@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Lauerp_Domain.DTOs.Presenca;
 
 namespace Lauerp_Domain.Interfaces
 {
-    internal class IPresencaService
+    public interface IPresencaService
     {
+        Task RegistraPresencaAsync(ResgistraPresencaDTO request);
     }
 }

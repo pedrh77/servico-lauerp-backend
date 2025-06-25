@@ -49,6 +49,8 @@ public static class BootStraper
     {
         services.AddScoped<IEventoService, EventoService>();
         services.AddScoped<IProfessorService, ProfessorService>();
+        services.AddScoped<IPresencaService, PresencaService>();
+        services.AddScoped<IJogadorRepository, JogadorRepository>();
 
     }
 
@@ -57,11 +59,16 @@ public static class BootStraper
 
         services.AddScoped<IEventoRepository, EventoRepository>();
         services.AddScoped<IProfessorRepository, ProfessorRepository>();
+        services.AddScoped<IPresencaRepository, PresencaRepository>();
+        services.AddScoped<IJogadorRepository, JogadorRepository>();
+
     }
 
     private static void RegisterApplication(IServiceCollection services)
     {
         services.AddScoped<IEventoApplication, EventoApplicationService>();
         services.AddScoped<IProfessoresApplication, ProfessoresApplicationService>();
+        services.AddScoped<IPresencaApplication, PresencaApplicationService>();
+        services.AddScoped<IJogadoresApplication, JogadorApplicationService>();
     }
 }
