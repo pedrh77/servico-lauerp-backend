@@ -1,14 +1,13 @@
 ﻿using Lauerp_Domain.Interfaces;
-using Lauerp_Infra.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lauerp_Infra.Repository
+namespace Lauerp_Domain.Services
 {
-    public class JogadorRepository(LauerpPostgreDbContext _dbcontext) : IJogadorRepository
+    public class AulaService(IAulaRepository _aulaRepository) : IAulaService
     {
     }
 }

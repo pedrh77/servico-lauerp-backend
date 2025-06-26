@@ -6,7 +6,12 @@
 
         public int JogadorId { get; set; }
         public Jogador Jogador { get; set; }
+        public int AulaId { get; set; }
+        public Aula Aula { get; set; }
+
         public bool Presente { get; set; }
         public DateTime Data { get; set; }
+
+
     }
 }

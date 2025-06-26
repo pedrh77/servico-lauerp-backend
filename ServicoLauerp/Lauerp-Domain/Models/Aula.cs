@@ -9,9 +9,5 @@
 
         public int EsporteId { get; set; }
         public Esporte Esporte { get; set; }
-
-        public DateTime DataHora { get; set; }
-
-        public IList<Presenca> Presencas { get; set; }
     }
 }

@@ -50,7 +50,8 @@ public static class BootStraper
         services.AddScoped<IEventoService, EventoService>();
         services.AddScoped<IProfessorService, ProfessorService>();
         services.AddScoped<IPresencaService, PresencaService>();
-        services.AddScoped<IJogadorRepository, JogadorRepository>();
+        services.AddScoped<IJogadorService, JogadorService>();
+        services.AddScoped<IAulaService, AulaService>();
 
     }
 
@@ -61,6 +62,7 @@ public static class BootStraper
         services.AddScoped<IProfessorRepository, ProfessorRepository>();
         services.AddScoped<IPresencaRepository, PresencaRepository>();
         services.AddScoped<IJogadorRepository, JogadorRepository>();
+        services.AddScoped<IAulaRepository, AulaRepository>();
 
     }
 
@@ -70,5 +72,6 @@ public static class BootStraper
         services.AddScoped<IProfessoresApplication, ProfessoresApplicationService>();
         services.AddScoped<IPresencaApplication, PresencaApplicationService>();
         services.AddScoped<IJogadoresApplication, JogadorApplicationService>();
+        services.AddScoped<IAulaApplication, AulaApplicationService>();
     }
 }

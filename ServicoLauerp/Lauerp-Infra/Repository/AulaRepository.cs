@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Lauerp_Infra.Repository
 {
-    public class JogadorRepository(LauerpPostgreDbContext _dbcontext) : IJogadorRepository
+    public class AulaRepository(LauerpPostgreDbContext _dbcontext) : IAulaRepository
     {
     }
 }
