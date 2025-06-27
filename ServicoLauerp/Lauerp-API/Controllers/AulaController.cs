@@ -1,4 +1,5 @@
-﻿using Lauerp_Aplication.Interfaces;
+﻿using Lauerp_Domain.DTOs.Aulas;
+using Lauerp_Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lauerp_API.Controllers
@@ -7,12 +8,13 @@ namespace Lauerp_API.Controllers
     [ApiController]
     [Route("[controller]")]
     [Produces("application/json")]
-    public class AulaController(IAulaApplication _aulaApplication) : ControllerBase
+    public class AulaController(IAulaService _aulaApplication) : ControllerBase
     {
         [HttpPost]
-        public async IActionResult RegistraNovaAula()
+        public async Task<IActionResult> RegistraNovaAula(RegistraNovaAulaDTO request)
         {
-            
+            await _aulaApplication.RegistraAulaAsync(request);
+            return Created();
         }
     }
 }

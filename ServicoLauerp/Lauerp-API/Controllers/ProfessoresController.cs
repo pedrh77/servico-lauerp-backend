@@ -1,5 +1,5 @@
-﻿using Lauerp_Aplication.Interfaces;
-using Lauerp_Domain.DTOs.Professor;
+﻿using Lauerp_Domain.DTOs.Professor;
+using Lauerp_Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lauerp_API.Controllers;
@@ -7,7 +7,7 @@ namespace Lauerp_API.Controllers;
 [ApiController]
 [Route("[controller]")]
 [Produces("application/json")]
-public class ProfessoresController(IProfessoresApplication _professorApplication) : ControllerBase
+public class ProfessoresController(IProfessorService _professorServices) : ControllerBase
 {
 
     [HttpPost]
@@ -15,7 +15,7 @@ public class ProfessoresController(IProfessoresApplication _professorApplication
     {
         try
         {
-            await _professorApplication.AddProfessorAsync(request);
+            await _professorServices.AddProfessorAsync(request);
             return Created();
         }
         catch (Exception ex)

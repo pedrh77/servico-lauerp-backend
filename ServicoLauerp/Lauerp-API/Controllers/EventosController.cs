@@ -1,5 +1,5 @@
-﻿using Lauerp_Application.Interfaces;
-using Lauerp_Domain.DTOs.Eventos;
+﻿using Lauerp_Domain.DTOs.Eventos;
+using Lauerp_Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lauerp_API.Controllers;
@@ -7,12 +7,12 @@ namespace Lauerp_API.Controllers;
 [ApiController]
 [Route("[controller]")]
 [Produces("application/json")]
-public class EventosController(IEventoApplication _eventoApplication) : ControllerBase
+public class EventosController(IEventoService _eventoServices) : ControllerBase
 {
     [HttpGet]
     public async Task<IActionResult> ListaEventosAsync()
     {
-        var eventos = await _eventoApplication.ListaEventosAsync();
+        var eventos = await _eventoServices.ListaEventosAsync();
 
         if (eventos == null || !eventos.Any())
             return NoContent();
@@ -23,7 +23,7 @@ public class EventosController(IEventoApplication _eventoApplication) : Controll
     [HttpGet("{Id}")]
     public async Task<IActionResult> ListaEventosByIdAsync(int Id)
     {
-        var eventos = await _eventoApplication.ListaEventosByIdAsync(Id);
+        var eventos = await _eventoServices.ListaEventosByIdAsync(Id);
 
         if (eventos == null)
             return NoContent();
@@ -38,7 +38,7 @@ public class EventosController(IEventoApplication _eventoApplication) : Controll
     {
         try
         {
-            await _eventoApplication.NovoEventoAsync(NovoEventoDTO);
+            await _eventoServices.NovoEventoAsync(NovoEventoDTO);
             return Created();
         }
         catch (Exception ex)

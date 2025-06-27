@@ -1,8 +1,4 @@
-﻿using Lauerp_Aplication.ApplicationService;
-using Lauerp_Aplication.Interfaces;
-using Lauerp_Aplication.Mapping;
-using Lauerp_Application.ApplicationService;
-using Lauerp_Application.Interfaces;
+﻿using Lauerp_Aplication.Mapping;
 using Lauerp_Domain.Interfaces;
 using Lauerp_Domain.Services;
 using Lauerp_Infra.Database;
@@ -18,7 +14,6 @@ public static class BootStraper
 
     public static IServiceCollection ConfigureDependencyInjection(this IServiceCollection services, IConfiguration configuration)
     {
-        RegisterApplication(services);
         RegisterMappingsProfile(services);
         RegisterRepositories(services);
         RegisterServices(services);
@@ -64,14 +59,5 @@ public static class BootStraper
         services.AddScoped<IJogadorRepository, JogadorRepository>();
         services.AddScoped<IAulaRepository, AulaRepository>();
 
-    }
-
-    private static void RegisterApplication(IServiceCollection services)
-    {
-        services.AddScoped<IEventoApplication, EventoApplicationService>();
-        services.AddScoped<IProfessoresApplication, ProfessoresApplicationService>();
-        services.AddScoped<IPresencaApplication, PresencaApplicationService>();
-        services.AddScoped<IJogadoresApplication, JogadorApplicationService>();
-        services.AddScoped<IAulaApplication, AulaApplicationService>();
     }
 }

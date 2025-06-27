@@ -11,5 +11,10 @@ namespace Lauerp_Domain.Services
         {
             return await _professorRepository.AddProfessorAsync(_mapper.Map<Professor>(request));
         }
+
+        public async Task<Professor> BuscaProfessorById(int professorId)
+        {
+            return await _professorRepository.BuscaProfessorById(professorId);
+        }
     }
 }
