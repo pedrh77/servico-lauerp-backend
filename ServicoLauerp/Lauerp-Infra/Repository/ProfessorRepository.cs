@@ -1,4 +1,5 @@
-﻿using Lauerp_Domain.Interfaces;
+﻿using Lauerp_Domain.DTOs.Professor;
+using Lauerp_Domain.Interfaces;
 using Lauerp_Domain.Models;
 using Lauerp_Infra.Database;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,11 @@ namespace Lauerp_Infra.Repository
         public async Task<Professor> BuscaProfessorById(int professorId)
         {
             return await _dbcontext.Professores.FirstOrDefaultAsync(x => x.Id.Equals(professorId));
+        }
+
+        public async Task<List<Professor>> BuscaProfessoresAsync()
+        {
+            return await _dbcontext.Professores.ToListAsync();
         }
     }
 }

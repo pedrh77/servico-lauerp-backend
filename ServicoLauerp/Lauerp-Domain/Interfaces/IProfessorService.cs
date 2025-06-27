@@ -7,5 +7,6 @@ namespace Lauerp_Domain.Interfaces
     {
         Task<int> AddProfessorAsync(NovoProfessorDTO request);
         Task<Professor> BuscaProfessorById(int professorId);
+        Task<List<ProfessorDTO>> BuscaProfessoresAsync();
     }
 }

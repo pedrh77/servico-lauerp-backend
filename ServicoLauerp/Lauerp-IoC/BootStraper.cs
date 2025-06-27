@@ -26,8 +26,6 @@ public static class BootStraper
     }
 
 
-
-
     private static void DatabaseConfiguration(IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<LauerpPostgreDbContext>(
@@ -49,6 +47,7 @@ public static class BootStraper
         services.AddScoped<IAulaService, AulaService>();
         services.AddScoped<IEsporteService, EsporteService>();
 
+
     }
 
     public static void RegisterRepositories(IServiceCollection services)
@@ -60,6 +59,8 @@ public static class BootStraper
         services.AddScoped<IJogadorRepository, JogadorRepository>();
         services.AddScoped<IAulaRepository, AulaRepository>();
         services.AddScoped<IMatriculaRepository, MatriculaRepository>();
+        services.AddScoped<IEsporteRepository, EsporteRepository>();
+
 
     }
 }

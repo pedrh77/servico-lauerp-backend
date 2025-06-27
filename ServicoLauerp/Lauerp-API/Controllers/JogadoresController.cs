@@ -10,7 +10,7 @@ namespace Lauerp_API.Controllers;
 public class JogadoresController(IJogadorService _jogadoresServices) : ControllerBase
 {
 
-    [HttpPost("{MatricularJogadorAulaDTO.JogadorId}/Matricula")]
+    [HttpPost("Matricula")]
     public async Task<IActionResult> MatriculaJogador(MatricularJogadorAulaDTO request)
     {
         await _jogadoresServices.MatricularJogadorAsync(request);

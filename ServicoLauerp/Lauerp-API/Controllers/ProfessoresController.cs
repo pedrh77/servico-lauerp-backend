@@ -26,14 +26,14 @@ public class ProfessoresController(IProfessorService _professorServices) : Contr
     }
 
     [HttpGet]
-    public IActionResult ListaProfessoresAsync()
+    public async Task<IActionResult> ListaProfessoresAsync()
     {
-        throw new NotImplementedException();
+        return Ok(await _professorServices.BuscaProfessoresAsync());
     }
 
-    [HttpGet]
-    public IActionResult ListaProfessoresByIdAsync(int Id)
+    [HttpGet("{Id}")]
+    public async Task<IActionResult> ListaProfessoresByIdAsync(int Id)
     {
-        throw new NotImplementedException();
+        return Ok(await _professorServices.BuscaProfessorById(Id));
     }
 }

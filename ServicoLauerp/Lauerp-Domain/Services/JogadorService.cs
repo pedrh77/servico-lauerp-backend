@@ -26,11 +26,29 @@ namespace Lauerp_Domain.Services
             return jogador;
         }
 
-        public async Task MatricularJogadorAsync(MatricularJogadorAulaDTO request)
+        public async Task<Matricula> MatricularJogadorAsync(MatricularJogadorAulaDTO request)
         {
-            await _jogadorRepository.BuscarJogadorById(request.JogadorId);
-            await _aulaRepository.BuscarAulaById(request.AulaId);
-            await _matriculaRepository.MatricularJogadorAsync(_mapper.Map<Matricula>(request));
+            try
+            {
+                var jogador = await _jogadorRepository.BuscarJogadorById(request.JogadorId);
+                var aula = await _aulaRepository.BuscarAulaById(request.AulaId);
+
+                if (jogador == null) { throw new NotImplementedException(); }
+                if (aula == null) { throw new NotImplementedException(); }
+
+                Matricula matriculaJogador = await _matriculaRepository.BuscaMatriculaEmAulaAsync(request.JogadorId, request.AulaId, request.Ano, request.Semestre);
+
+                if (matriculaJogador == null)
+                {
+                    return await _matriculaRepository.MatricularJogadorAsync(_mapper.Map<Matricula>(request));
+                }
+                return matriculaJogador;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
     }
 }

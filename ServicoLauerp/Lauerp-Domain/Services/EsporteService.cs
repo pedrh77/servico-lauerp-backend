@@ -1,13 +1,20 @@
-﻿using Lauerp_Domain.Interfaces;
+﻿using AutoMapper;
+using Lauerp_Domain.DTOs.Esportes;
+using Lauerp_Domain.Interfaces;
 using Lauerp_Domain.Models;
 
 namespace Lauerp_Domain.Services
 {
-    public class EsporteService : IEsporteService
+    public class EsporteService(IMapper _mapper, IEsporteRepository _esporteRepository) : IEsporteService
     {
-        public Task<Esporte> BuscaEsporteById(int esporteId)
+        public async Task<Esporte> BuscaEsporteById(int esporteId)
         {
-            throw new NotImplementedException();
+            return await _esporteRepository.BuscaEsporteById(esporteId);
+        }
+
+        public async Task<Esporte> RegistraNovoEsporteAsync(NovoEsporteDTO request)
+        {
+            return await _esporteRepository.AddEsporteAsync(_mapper.Map<Esporte>(request));
         }
     }
 }

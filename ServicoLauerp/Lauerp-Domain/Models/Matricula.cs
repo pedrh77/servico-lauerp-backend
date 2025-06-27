@@ -8,6 +8,9 @@
         public int AulaId { get; set; }
         public Aula aula { get; set; }
 
+        public int Semestre { get; set; }
+        public int Ano { get; set; }
+
 
     }
 }
