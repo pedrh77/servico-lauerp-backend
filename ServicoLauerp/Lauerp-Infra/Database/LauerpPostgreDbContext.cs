@@ -15,4 +15,5 @@ public class LauerpPostgreDbContext : DbContext
     public DbSet<Evento> Eventos { get; set; }
     public DbSet<Presenca> Presencas { get; set; }
     public DbSet<Aula> Aulas { get; set; }
+    public DbSet<Matricula> Matriculas { get; set; }
 }

@@ -1,4 +1,5 @@
-﻿using Lauerp_Domain.Interfaces;
+﻿using Lauerp_Domain.DTOs.Jogador;
+using Lauerp_Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lauerp_API.Controllers;
@@ -9,4 +10,10 @@ namespace Lauerp_API.Controllers;
 public class JogadoresController(IJogadorService _jogadoresServices) : ControllerBase
 {
 
+    [HttpPost("{MatricularJogadorAulaDTO.JogadorId}/Matricula")]
+    public async Task<IActionResult> MatriculaJogador(MatricularJogadorAulaDTO request)
+    {
+        await _jogadoresServices.MatricularJogadorAsync(request);
+        return Created();
+    }
 }

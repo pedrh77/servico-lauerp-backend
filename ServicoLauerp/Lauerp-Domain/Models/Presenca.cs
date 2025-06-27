@@ -4,14 +4,9 @@
     {
         public int Id { get; set; }
 
-        public int JogadorId { get; set; }
-        public Jogador Jogador { get; set; }
-        public int AulaId { get; set; }
-        public Aula Aula { get; set; }
-
+        public int MatriculaId { get; set; }
+        public Matricula Matricula { get; set; }
         public bool Presente { get; set; }
         public DateTime Data { get; set; }
-
-
     }
 }

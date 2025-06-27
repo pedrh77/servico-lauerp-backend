@@ -47,6 +47,7 @@ public static class BootStraper
         services.AddScoped<IPresencaService, PresencaService>();
         services.AddScoped<IJogadorService, JogadorService>();
         services.AddScoped<IAulaService, AulaService>();
+        services.AddScoped<IEsporteService, EsporteService>();
 
     }
 
@@ -58,6 +59,7 @@ public static class BootStraper
         services.AddScoped<IPresencaRepository, PresencaRepository>();
         services.AddScoped<IJogadorRepository, JogadorRepository>();
         services.AddScoped<IAulaRepository, AulaRepository>();
+        services.AddScoped<IMatriculaRepository, MatriculaRepository>();
 
     }
 }

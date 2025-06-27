@@ -1,4 +1,5 @@
-﻿using Lauerp_Domain.Models;
+﻿using Lauerp_Domain.DTOs.Jogador;
+using Lauerp_Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Lauerp_Domain.Interfaces
 {
     public interface IJogadorService
     {
-        Task<Jogador> BuscaJogadroById(int jogadorId);
+        Task<Jogador> BuscaJogadorById(int jogadorId);
+        Task MatricularJogadorAsync(MatricularJogadorAulaDTO request);
     }
 }
