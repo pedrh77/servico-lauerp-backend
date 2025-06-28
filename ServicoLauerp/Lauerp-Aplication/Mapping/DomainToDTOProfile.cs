@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Lauerp_Domain.DTOs.Aulas;
 using Lauerp_Domain.DTOs.Esportes;
 using Lauerp_Domain.DTOs.Eventos;
 using Lauerp_Domain.DTOs.Jogador;
@@ -11,18 +12,21 @@ public class DomainToDTOProfile : Profile
 {
     public DomainToDTOProfile()
     {
-        CreateMap<Evento, EventoDTO>().ReverseMap();
-        CreateMap<NovoEventoDTO, Evento>().ReverseMap();
+        CreateMap<Evento, EventoResponseDTO>().ReverseMap();
+        CreateMap<NovoEventoRequestDTO, Evento>().ReverseMap();
 
 
         CreateMap<Professor, ProfessorDTO>().ReverseMap();
         CreateMap<NovoProfessorDTO, Professor>().ReverseMap();
 
-        CreateMap<NovoJogadorDTO, Jogador>().ReverseMap();
+        CreateMap<NovoJogadorRequestDTO, Jogador>().ReverseMap();
 
-        CreateMap<MatricularJogadorAulaDTO, Matricula>().ReverseMap();
+        CreateMap<MatricularJogadorAulaRequestDTO, Matricula>().ReverseMap();
 
-        CreateMap<Esporte, EsporteDTO>().ReverseMap();
+        CreateMap<Esporte, EsporteResponseDTO>().ReverseMap();
+        CreateMap<NovoEsporteRequestDTO, Esporte>().ReverseMap();
+
+        CreateMap<NovaAulaRequestDTO, Aula>().ReverseMap();
 
     }
 }

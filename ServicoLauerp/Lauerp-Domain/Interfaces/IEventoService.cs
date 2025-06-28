@@ -5,8 +5,8 @@ namespace Lauerp_Domain.Interfaces;
 
 public interface IEventoService
 {
-    Task<List<EventoDTO>> ListaEventosAsync();
+    Task<List<EventoResponseDTO>> ListaEventosAsync();
 
-    Task<EventoDTO> ListaEventosByIdAsync(int Id);
-    Task<int> NovoEventoAsync(NovoEventoDTO request);
+    Task<EventoResponseDTO> ListaEventosByIdAsync(int Id);
+    Task<int> NovoEventoAsync(NovoEventoRequestDTO request);
 }

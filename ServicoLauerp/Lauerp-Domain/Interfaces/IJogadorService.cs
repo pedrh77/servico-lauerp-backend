@@ -11,6 +11,7 @@ namespace Lauerp_Domain.Interfaces
     public interface IJogadorService
     {
         Task<Jogador> BuscaJogadorById(int jogadorId);
-        Task<Matricula> MatricularJogadorAsync(MatricularJogadorAulaDTO request);
+        Task<Matricula> MatricularJogadorAsync(MatricularJogadorAulaRequestDTO request);
+        Task<Jogador> CadastraJogadorAsync(NovoJogadorRequestDTO request);
     }
 }

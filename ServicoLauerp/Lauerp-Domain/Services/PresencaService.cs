@@ -7,7 +7,7 @@ namespace Lauerp_Domain.Services
     public class PresencaService(IPresencaRepository _presencaRepository,
         IJogadorService _jogadorService,IAulaService _aulaService) : IPresencaService
     {
-        public async Task RegistraPresencaAsync(ResgistraPresencaDTO request)
+        public async Task RegistraPresencaAsync(ResgistraPresencaRequestDTO request)
         {
             
             Jogador responseJogador = await _jogadorService.BuscaJogadorById(request.JogadorId);

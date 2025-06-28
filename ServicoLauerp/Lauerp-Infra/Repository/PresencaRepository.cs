@@ -6,7 +6,7 @@ namespace Lauerp_Infra.Repository
 {
     public class PresencaRepository(LauerpPostgreDbContext _dbcontext) : IPresencaRepository
     {
-        public Task RegistraPresencaAsync(ResgistraPresencaDTO request)
+        public Task RegistraPresencaAsync(ResgistraPresencaRequestDTO request)
         {
             throw new NotImplementedException();
         }

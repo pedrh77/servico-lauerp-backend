@@ -11,7 +11,7 @@ namespace Lauerp_API.Controllers
     public class AulaController(IAulaService _aulaApplication) : ControllerBase
     {
         [HttpPost]
-        public async Task<IActionResult> RegistraNovaAula(RegistraNovaAulaDTO request)
+        public async Task<IActionResult> RegistraNovaAula(NovaAulaRequestDTO request)
         {
             await _aulaApplication.RegistraAulaAsync(request);
             return Created();

@@ -34,7 +34,7 @@ public class EventosController(IEventoService _eventoServices) : ControllerBase
 
 
     [HttpPost]
-    public async Task<IActionResult> AdicionaNovoEventoAsync([FromBody] NovoEventoDTO NovoEventoDTO)
+    public async Task<IActionResult> AdicionaNovoEventoAsync([FromBody] NovoEventoRequestDTO NovoEventoDTO)
     {
         try
         {

@@ -1,6 +1,6 @@
 ﻿namespace Lauerp_Domain.DTOs.Eventos;
 
-public class EventoDTO
+public class EventoResponseDTO
 {
     public int Id { get; set; }
     public string Titulo { get; set; }

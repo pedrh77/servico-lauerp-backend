@@ -1,6 +1,6 @@
 ﻿namespace Lauerp_Domain.DTOs.Jogador
 {
-    public class NovoJogadorDTO
+    public class NovoJogadorRequestDTO
     {
         public string Nome { get; set; }
         public string Matricula { get; set; }

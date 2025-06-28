@@ -2,7 +2,7 @@
 
 namespace Lauerp_Domain.DTOs.Eventos;
 
-public class NovoEventoDTO
+public class NovoEventoRequestDTO
 {
 
     [Required]

@@ -7,12 +7,12 @@ namespace Lauerp_Domain.Services
 {
     public class EventoService(IEventoRepository _eventoRepository, IMapper _mapper) : IEventoService
     {
-        public async Task<List<EventoDTO>> ListaEventosAsync() => _mapper.Map<List<EventoDTO>>(await _eventoRepository.ListaEventosAsync());
+        public async Task<List<EventoResponseDTO>> ListaEventosAsync() => _mapper.Map<List<EventoResponseDTO>>(await _eventoRepository.ListaEventosAsync());
 
 
-        public async Task<EventoDTO> ListaEventosByIdAsync(int Id) => _mapper.Map<EventoDTO>(await _eventoRepository.ListaEventosByIdAsync(Id));
+        public async Task<EventoResponseDTO> ListaEventosByIdAsync(int Id) => _mapper.Map<EventoResponseDTO>(await _eventoRepository.ListaEventosByIdAsync(Id));
 
-        public async Task<int> NovoEventoAsync(NovoEventoDTO request)
+        public async Task<int> NovoEventoAsync(NovoEventoRequestDTO request)
         {
             return await _eventoRepository.AddEventoAsync(_mapper.Map<Evento>(request));
 

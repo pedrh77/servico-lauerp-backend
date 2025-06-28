@@ -6,6 +6,6 @@ namespace Lauerp_Domain.Interfaces
     public interface IEsporteService
     {
         Task<Esporte> BuscaEsporteById(int esporteId);
-        Task<Esporte> RegistraNovoEsporteAsync(NovoEsporteDTO request);
+        Task<Esporte> RegistraNovoEsporteAsync(NovoEsporteRequestDTO request);
     }
 }

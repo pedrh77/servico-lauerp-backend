@@ -1,6 +1,6 @@
 ﻿namespace Lauerp_Domain.DTOs.Presenca;
 
-public class ResgistraPresencaDTO
+public class ResgistraPresencaRequestDTO
 {
     public int JogadorId { get; set; }
     public int AulaId { get; set; }

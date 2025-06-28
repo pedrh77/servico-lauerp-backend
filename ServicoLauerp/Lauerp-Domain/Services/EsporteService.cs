@@ -12,7 +12,7 @@ namespace Lauerp_Domain.Services
             return await _esporteRepository.BuscaEsporteById(esporteId);
         }
 
-        public async Task<Esporte> RegistraNovoEsporteAsync(NovoEsporteDTO request)
+        public async Task<Esporte> RegistraNovoEsporteAsync(NovoEsporteRequestDTO request)
         {
             return await _esporteRepository.AddEsporteAsync(_mapper.Map<Esporte>(request));
         }

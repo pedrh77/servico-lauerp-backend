@@ -4,6 +4,6 @@ namespace Lauerp_Domain.Interfaces
 {
     public interface IPresencaService
     {
-        Task RegistraPresencaAsync(ResgistraPresencaDTO request);
+        Task RegistraPresencaAsync(ResgistraPresencaRequestDTO request);
     }
 }

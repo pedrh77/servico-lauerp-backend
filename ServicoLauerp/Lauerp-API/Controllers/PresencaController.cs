@@ -11,7 +11,7 @@ namespace Lauerp_API.Controllers
     {
 
         [HttpPost]
-        public async Task<IActionResult> AdicionaRegistroPresencaAsync(ResgistraPresencaDTO request)
+        public async Task<IActionResult> AdicionaRegistroPresencaAsync(ResgistraPresencaRequestDTO request)
         {
             await _presencaService.RegistraPresencaAsync(request);
 

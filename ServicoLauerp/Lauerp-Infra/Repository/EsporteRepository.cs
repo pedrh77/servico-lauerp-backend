@@ -17,7 +17,7 @@ namespace Lauerp_Infra.Repository
 
         public async Task<Esporte> BuscaEsporteById(int esporteId)
         {
-            return await _context.Esportes.FirstOrDefaultAsync(x => x.Id.Equals(esporteId));
+            return await _context.Esportes.FirstOrDefaultAsync(x => x.Id.Equals(esporteId) && x.Deleted.Equals(false));
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Lauerp_Domain.Services
             return await _jogadorRepository.BuscarJogadorById(jogadorId);
         }
 
-        public async Task<Jogador> CadastraJogadorAsync(NovoJogadorDTO request)
+        public async Task<Jogador> CadastraJogadorAsync(NovoJogadorRequestDTO request)
         {
             var jogador = new Jogador();
             jogador = await _jogadorRepository.BuscaJogadorByMatricula(request.Matricula);
@@ -26,7 +26,7 @@ namespace Lauerp_Domain.Services
             return jogador;
         }
 
-        public async Task<Matricula> MatricularJogadorAsync(MatricularJogadorAulaDTO request)
+        public async Task<Matricula> MatricularJogadorAsync(MatricularJogadorAulaRequestDTO request)
         {
             try
             {
@@ -50,5 +50,6 @@ namespace Lauerp_Domain.Services
             }
 
         }
+
     }
 }
