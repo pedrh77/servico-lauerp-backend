@@ -10,8 +10,8 @@ namespace Lauerp_Domain.Models
         public DateTime DataNascimento { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
-        public string SenhaHash { get; set; }
-        public TipoUsuario  Role { get; set; }
+        public string? SenhaHash { get; set; }
+        public TipoUsuario  TipoUsuario { get; set; }
         public string? Matricula { get; set; }
     }
 }

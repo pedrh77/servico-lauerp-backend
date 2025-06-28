@@ -3,6 +3,7 @@ using System;
 using Lauerp_Infra.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Lauerp_Infra.Migrations
 {
     [DbContext(typeof(LauerpPostgreDbContext))]
-    partial class LauerpPostgreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250628034440_AdicionandoUsuario-RemoveJogadorProfessor")]
+    partial class AdicionandoUsuarioRemoveJogadorProfessor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -224,15 +227,15 @@ namespace Lauerp_Infra.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("Role")
+                        .HasColumnType("integer");
+
                     b.Property<string>("SenhaHash")
                         .HasColumnType("text");
 
                     b.Property<string>("Telefone")
                         .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<int>("TipoUsuario")
-                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

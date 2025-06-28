@@ -1,8 +1,8 @@
-﻿namespace Lauerp_Domain.DTOs.Jogador
+﻿namespace Lauerp_Domain.DTOs.Aulas
 {
-    public class MatricularJogadorAulaRequestDTO
+    public class MatricularJogadorRequestDTO
     {
-        public int JogadorId { get; set; }
+        public string Matricula { get; set; }
         public int AulaId { get; set; }
         public int Ano { get; set; }
         public int Semestre { get; set; }

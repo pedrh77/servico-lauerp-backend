@@ -40,12 +40,14 @@ public static class BootStraper
 
     public static void RegisterServices(IServiceCollection services)
     {
-        services.AddScoped<IEventoService, EventoService>();
-        services.AddScoped<IProfessorService, ProfessorService>();
-        services.AddScoped<IPresencaService, PresencaService>();
-        services.AddScoped<IJogadorService, JogadorService>();
         services.AddScoped<IAulaService, AulaService>();
+        services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IEsporteService, EsporteService>();
+        services.AddScoped<IEventoService, EventoService>();
+        services.AddScoped<IMd5HashService, Md5HashService>();
+        services.AddScoped<IPresencaService, PresencaService>();
+        services.AddScoped<IUsuarioService, UsuarioService>();
+
 
 
     }
@@ -53,14 +55,11 @@ public static class BootStraper
     public static void RegisterRepositories(IServiceCollection services)
     {
 
-        services.AddScoped<IEventoRepository, EventoRepository>();
-        services.AddScoped<IProfessorRepository, ProfessorRepository>();
-        services.AddScoped<IPresencaRepository, PresencaRepository>();
-        services.AddScoped<IJogadorRepository, JogadorRepository>();
         services.AddScoped<IAulaRepository, AulaRepository>();
-        services.AddScoped<IMatriculaRepository, MatriculaRepository>();
+        services.AddScoped<IEventoRepository, EventoRepository>();
         services.AddScoped<IEsporteRepository, EsporteRepository>();
-
-
+        services.AddScoped<IMatriculaRepository, MatriculaRepository>();
+        services.AddScoped<IPresencaRepository, PresencaRepository>();
+        services.AddScoped<IUsuarioRepository, UsuarioRepository>();
     }
 }

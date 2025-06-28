@@ -16,5 +16,12 @@ namespace Lauerp_API.Controllers
             await _aulaApplication.RegistraAulaAsync(request);
             return Created();
         }
+
+        [HttpPost("Matricula")]
+        public async Task<IActionResult> MatriculaJogadorAula(MatricularJogadorRequestDTO request)
+        {
+            await _aulaApplication.MatricularJogadorAsync(request);
+            return Created();
+        }
     }
 }

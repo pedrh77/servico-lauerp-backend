@@ -7,9 +7,9 @@ namespace Lauerp_Infra.Repository
 {
     public class MatriculaRepository(LauerpPostgreDbContext _context) : IMatriculaRepository
     {
-        public async Task<Matricula> BuscaMatriculaEmAulaAsync(int jogadorId, int aulaId, int ano, int semestre)
+        public async Task<Matricula> BuscaMatriculaEmAulaAsync(int usuarioId, int aulaId, int ano, int semestre)
         {
-            return await _context.Matriculas.FirstOrDefaultAsync(x => x.JogadorId.Equals(jogadorId)
+            return await _context.Matriculas.FirstOrDefaultAsync(x => x.UsuarioId.Equals(usuarioId)
                                                                         && x.AulaId.Equals(aulaId)
                                                                         && x.Ano.Equals(ano)
                                                                         && x.Semestre.Equals(semestre));
