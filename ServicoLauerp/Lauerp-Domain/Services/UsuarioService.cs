@@ -15,6 +15,10 @@ namespace Lauerp_Domain.Services
 
             usuario.SenhaHash = await _hash.GerarHashMd5(await AplicarHashSenha(request.Nome, request.CPF));
 
+            Usuario user = await _usuarioRepository.BuscaUsuarioByCPF(request.CPF, request.TipoUsuario);
+
+            if (user != null) throw new NotImplementedException("Usuario para Tipo Escolhido Já existe.");
+
             if (request.TipoUsuario == TipoUsuario.Jogador)
             {
                 if (String.IsNullOrEmpty(request.Matricula))

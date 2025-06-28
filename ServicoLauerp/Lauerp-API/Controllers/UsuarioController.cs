@@ -1,7 +1,9 @@
 ﻿using Lauerp_Domain.DTOs.Usuario;
+using Lauerp_Domain.Enum;
 using Lauerp_Domain.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Lauerp_API.Controllers
 {
@@ -10,7 +12,7 @@ namespace Lauerp_API.Controllers
     [Produces("application/json")]
     public class UsuarioController(IUsuarioService _usuarioService) : ControllerBase
     {
-        [Authorize(Roles = "Admin,Professor")]
+        [Authorize(Roles ="Jogador")]
         [HttpPost("Novo")]
         public async Task<IActionResult> RegistraNovoUsuario(NovoUsuarioRequestDTO request)
         {

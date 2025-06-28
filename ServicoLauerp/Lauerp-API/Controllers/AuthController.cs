@@ -1,5 +1,6 @@
 ﻿using Lauerp_Domain.DTOs.Login;
 using Lauerp_Domain.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lauerp_API.Controllers
@@ -22,6 +23,27 @@ namespace Lauerp_API.Controllers
             {
                 return Unauthorized("Credenciais inválidas.");
             }
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet("admin")]
+        public IActionResult AdminArea()
+        {
+            return Ok("Você é admin!");
+        }
+
+        [Authorize(Roles = "Jogador")]
+        [HttpGet("jogador")]
+        public IActionResult JogadorArea()
+        {
+            return Ok("Você é jogador!");
+        }
+
+        [Authorize(Roles = "Professor")]
+        [HttpGet("professor")]
+        public IActionResult ProfessorArea()
+        {
+            return Ok("Você é professor!");
         }
     }
 }

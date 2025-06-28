@@ -15,14 +15,20 @@ namespace Lauerp_Infra.Repository
             await _context.SaveChangesAsync();
         }
 
-        public Task<Usuario> BuscaUsuarioById(int professorId, TipoUsuario tipoUsuario)
+        public async Task<Usuario> BuscaUsuarioByCPF(string Cpf, TipoUsuario tipoUsuario)
         {
-            throw new NotImplementedException();
+            return await _context.Usuarios.FirstOrDefaultAsync(x => x.CPF.Equals(Cpf) && x.TipoUsuario.Equals(tipoUsuario) && x.Deleted.Equals(false));
         }
 
-        public Task<Usuario> BuscaUsuarioJogadorByMatricula(string matricula)
+
+        public async Task<Usuario> BuscaUsuarioById(int UsuarioId, TipoUsuario tipoUsuario)
         {
-            throw new NotImplementedException();
+            return await _context.Usuarios.FirstOrDefaultAsync(x => x.Id.Equals(UsuarioId) && x.TipoUsuario.Equals(tipoUsuario) && x.Deleted.Equals(false));
+        }
+
+        public async Task<Usuario> BuscaUsuarioJogadorByMatricula(string matricula)
+        {
+            return await _context.Usuarios.FirstOrDefaultAsync(x => x.Matricula.Equals(matricula) && x.Deleted.Equals(false));
         }
 
         public async Task<Usuario> BuscaUsuarioLoginAsync(string email, string senha)
