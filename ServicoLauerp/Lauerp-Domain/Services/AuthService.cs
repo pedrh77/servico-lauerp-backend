@@ -10,7 +10,7 @@ namespace Lauerp_Domain.Services
 {
     public class AuthService(IConfiguration _config) : IAuthService
     {
-        public Task<LoginResponseDTO> AutenticarAsync(LoginRequestDTO login)
+        public async Task<LoginResponseDTO> AutenticarAsync(LoginRequestDTO login)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_config["Jwt:Key"]);
@@ -33,9 +33,8 @@ namespace Lauerp_Domain.Services
                 Token = tokenHandler.WriteToken(token),
                 ExpiraEm = tokenDescriptor.Expires.Value
             };
-        }
 
-        throw new UnauthorizedAccessException("Usuário ou senha inválidos.");
+            throw new UnauthorizedAccessException("Usuário ou senha inválidos.");
+        }
     }
 }
-
